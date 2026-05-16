@@ -545,9 +545,14 @@ width: 50px;
 .ebook-grid{
   display:grid;
   
-  grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(500px,1fr));
   gap:25px;
 }
+@media(max-width:768px){
+
+ .ebook-grid{
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  }}
 
 .ebook-module{
 	margin-top: 30PX;
