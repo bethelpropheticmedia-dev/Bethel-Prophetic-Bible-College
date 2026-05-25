@@ -110,7 +110,65 @@ fieldset {
     height: auto;
     animation: zoom 1.5s infinite ease-in-out;
 }
+ .register-section{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:40px 20px;
+  }
 
+  .register-box{
+    width:100%;
+    max-width:420px;
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  .register-box h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#222;
+  }
+
+  .register-box input{
+    width:100%;
+    padding:14px;
+    margin-bottom:16px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+  }
+
+  .register-box input:focus{
+     border-color:#94713f;
+    box-shadow:0 0 8px #8b5915;
+  }
+
+  .register-box button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#091b27;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+  }
+
+  .register-box button:hover{
+    opacity:0.9;
+  }
+
+  @media(max-width:480px){
+
+    .register-box{
+      padding:22px;
+    }
+
+  }
 /* Optional animation */
 @keyframes zoom{
     0%{
@@ -179,6 +237,116 @@ width: 50px;
 	border:2px solid #091b27;
     color: #000;
 }
+
+#statcounter_container{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 9999;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+
+ .login-section{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:40px 20px;
+  }
+
+  .login-box{
+    width:100%;
+    max-width:380px;
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  .login-box h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#222;
+    font-size:28px;
+  }
+
+  .login-box input{
+    width:100%;
+    padding:14px;
+    margin-bottom:16px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+    transition:0.3s;
+  }
+
+  .login-box input:focus{
+    border-color:#94713f;
+    box-shadow:0 0 8px #8b5915;
+  }
+
+  .login-box button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#091b27;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+  }
+
+  .login-box button:hover{
+    background:#182d3b;
+  }
+
+  #message{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+  }
+   
+
+
+    .error-message{
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .success-message{
+    color: green;
+    font-size: 15px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  input.error{
+    border: 2px solid red;
+  }
+  @media(max-width:480px){
+
+    .login-box{
+      padding:22px;
+    }
+
+    .login-box h2{
+      font-size:24px;
+    }
+
+  }
+
+
 /*END SCROLL TO TOP*/
 
 
@@ -553,7 +721,6 @@ width: 50px;
  .ebook-grid{
     grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   }}
-
 .ebook-module{
 	margin-top: 30PX;
  background: linear-gradient(135deg, #b8843b, #d9b36c);
