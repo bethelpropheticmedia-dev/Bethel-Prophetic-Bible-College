@@ -10,7 +10,7 @@
 		<meta name="description" content="Bethel Prophetic Bible College offers biblical education, prophetic training, online classes, study materials, and spiritual growth programs for students worldwide.">
         <meta name="keywords" content="Bethel Prophetic Bible College, Bible College, Prophetic Training, Christian Education, Theology Courses, Online Bible Classes, Biblical Studies, Ministry Training, Spiritual Growth, Christian Ministry, Bethel Prophetic Ministries, Bible School">		
 		<!-- SITE TITLE -->
-	    <title>Tamil Course | Bethel Prophetic College</title>			
+	    <title>Login| Bethel Prophetic College</title>			
         <link rel="icon" type="image/png" href="logo.png">		
 		<!-- Latest Bootstrap min CSS -->
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">		
@@ -44,63 +44,9 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
-<script>
+      
 
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-const url = 'brochure.pdf';
-
-const pdfContainer = document.getElementById('pdf-container');
-
-pdfjsLib.getDocument(url).promise.then(pdf => {
-
-  for(let pageNum = 1; pageNum <= pdf.numPages; pageNum++){
-
-    pdf.getPage(pageNum).then(page => {
-
-      const viewport = page.getViewport({ scale: 1.6 });
-
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-
-      canvas.classList.add('pdf-page');
-
-      pdfContainer.appendChild(canvas);
-
-      page.render({
-        canvasContext: context,
-        viewport: viewport
-      });
-
-    });
-
-  }
-
-});
-
-
-
-
-function openPopup(imageSrc){
-
-    document.getElementById("imagePopup").style.display = "flex";
-
-    document.getElementById("popupImage").src = imageSrc;
-
-}
-
-function closePopup(){
-
-    document.getElementById("imagePopup").style.display = "none";
-
-}
-</script>
-
-
+          
 
 
 		<!-- START PRELOADER -->
@@ -166,75 +112,77 @@ function closePopup(){
 					</ul>			
 				</div><!--- END ROW -->
 			</div><!--- END CONTAINER -->
-		</div>   	  
+		</div>    	  
 		<!-- END NAVBAR -->		
 
-		<!-- START SECTION TOP -->
-		<section class="section-top">
-			<div class="container">
-				<div class="col-lg-10 offset-lg-1 text-center">
-					<div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-						<h1>பாட திட்டங்கள் </h1>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li> / பாடம் </li>
-						</ul>
-					</div><!-- //.HERO-TEXT -->
-				</div><!--- END COL -->
-			</div><!--- END CONTAINER -->
-		</section>	
-		<!-- END SECTION TOP -->
-		<section class="pdf-section">
-
-  <div class="pdf-header">
-    <h1>பெத்தேல் தீர்க்கதரிசன வேதாகமக் கல்லூரி</h1>
-    <p>காரைக்குடி </p>
-
-	<img src="assets/img/bg/front1.png" class="img-fluid" alt="" /><br>
 	
-          <div class="course-grid">
+		
+       
+		<!-- START REGISTER -->
+		 <!-- REGISTER SECTION -->
+<section class="register-section">
 
-    <div class="course-box">
-        <h3>இளங்களை பாடத்திட்டங்கள்</h3>
-        <p  onclick="openPopup('assets/img/coursetam2.jpg')">தொகுதிகளைப் பார்க்கவும்</p>
-    </div>
+  <div class="register-box">
 
-    <div class="course-box">
-        <h3>டிப்ளமோ பாடத்திட்டங்கள்</h3>
-        <p onclick="openPopup('assets/img/coursetam1.jpg')">தொகுதிகளைப் பார்க்கவும்</p>
-    </div>
-<!-- 
-    <div class="course-box">
-        <h3>DIPLOMA CURRICULUM</h3>
-        <p onclick="openPopup('assets/img/course3.jpg')">VIEW MODULES</p>
-    </div>
+    <h2>Registration Request</h2>
 
-    <div class="course-box">
-        <h3>DIPLOMA IN MINISTRIES</h3>
-        <p onclick="openPopup('assets/img/course4.jpg')">VIEW MODULES</p>
-    </div> -->
+	<!-- Application ID -->
+<input type="text"
+  id="applicationId"
+  placeholder="Application ID">
 
-</div><br>
-    <a href="assets/pdf/Brouchure_Webview_Tamil.pdf" download class="download-btn">
-      Download PDF
-    </a>
+<span id="applicationIdError"
+  class="error-message"></span>
+
+    <!-- Name -->
+    <input type="text"
+      id="studentName"
+      placeholder="Full Name">
+
+    <span id="nameError"
+      class="error-message"></span>
+
+
+    <!-- Email -->
+    <input type="email"
+      id="studentEmail"
+      placeholder="Email Address">
+
+    <span id="emailError"
+      class="error-message"></span>
+
+
+    <!-- Phone -->
+    <input type="tel"
+      id="studentPhone"
+      placeholder="Phone Number">
+
+    <span id="phoneError"
+      class="error-message"></span>
+
+
+    <!-- Course -->
+    <input type="text"
+      id="studentCourse"
+      placeholder="Course / Class">
+
+    <span id="courseError"
+      class="error-message"></span>
+
+
+    <button onclick="sendEmailRequest()">
+      Request Registration
+    </button>
+  
+    <p style="text-align: center; margin-top: 20px;">Registered Student? <a href="loginpage.html">Login</a></p>
+
+    <div id="successMessage"
+      class="success-message"></div>
+
   </div>
 
-  <div id="pdf-container"></div>
-
 </section>
-
-<!-- POPUP -->
-<div id="imagePopup" class="popup">
-
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-
-    <img id="popupImage" src="" alt="Course Image">
-
-</div>
-		<!-- START COURSE -->
-		
-		<!-- END COURSE -->		
+		<!-- END REGISTER-->		
 		
 		<!-- START FOOTER -->
 		<div class="footer section-padding">
@@ -305,7 +253,229 @@ Tamil Nadu- India</p>
 			</div>	
 		</div>
 		<!-- END FOOTER COPYRIGHT -->	
-	
+	<script>
+
+  function sendEmailRequest() {
+
+         // Already Registered Data
+  const registeredStudents = [
+
+    {
+      applicationId: "APP1001",
+      email: "john@gmail.com",
+      phone: "9876543210"
+    },
+
+    {
+      applicationId: "APP1002",
+      email: "rajesh@gmail.com",
+      phone: "9999999999"
+    }
+
+  ];
+
+
+	const applicationId =
+  document.getElementById("applicationId");
+
+// Check Existing Application ID
+const applicationIdExists =
+  registeredStudents.some(student =>
+    student.applicationId.toLowerCase() ===
+    applicationId.value.trim().toLowerCase()
+  );
+
+if (applicationIdExists) {
+
+  document.getElementById("applicationIdError")
+    .innerText =
+    "This Application ID is already registered";
+
+  applicationId.classList.add("error");
+
+  isValid = false;
+}
+
+    const name =
+      document.getElementById("studentName");
+
+    const email =
+      document.getElementById("studentEmail");
+
+	  // Check Existing Email
+const emailExists =
+  registeredStudents.some(student =>
+    student.email.toLowerCase() ===
+    email.value.trim().toLowerCase()
+  );
+
+if (emailExists) {
+
+  document.getElementById("emailError")
+    .innerText =
+    "This Email is already registered";
+
+  email.classList.add("error");
+
+  isValid = false;
+}
+
+    const phone =
+      document.getElementById("studentPhone");
+
+	  // Check Existing Phone
+const phoneExists =
+  registeredStudents.some(student =>
+    student.phone ===
+    phone.value.trim()
+  );
+
+if (phoneExists) {
+
+  document.getElementById("phoneError")
+    .innerText =
+    "This Phone Number is already registered";
+
+  phone.classList.add("error");
+
+  isValid = false;
+}
+
+
+    const course =
+      document.getElementById("studentCourse");
+
+    const successMsg =
+      document.getElementById("successMessage");
+
+    // Clear old errors
+    document.querySelectorAll(".error-message")
+      .forEach(el => el.innerText = "");
+
+    document.querySelectorAll("input")
+      .forEach(el => el.classList.remove("error"));
+
+    successMsg.innerText = "";
+
+    let isValid = true;
+
+
+
+    // Application ID Validation
+if (applicationId.value.trim() === "") {
+
+  document.getElementById("applicationIdError")
+    .innerText = "Please enter Application ID";
+
+  applicationId.classList.add("error");
+
+  isValid = false;
+}
+
+
+    // Name Validation
+    if (name.value.trim() === "") {
+
+      document.getElementById("nameError")
+        .innerText = "Please enter Full Name";
+
+      name.classList.add("error");
+
+      isValid = false;
+    }
+
+    // Email Validation
+    const emailPattern =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email.value.trim() === "") {
+
+      document.getElementById("emailError")
+        .innerText = "Please enter Email Address";
+
+      email.classList.add("error");
+
+      isValid = false;
+
+    } else if (!emailPattern.test(email.value)) {
+
+      document.getElementById("emailError")
+        .innerText = "Please enter valid Email Address";
+
+      email.classList.add("error");
+
+      isValid = false;
+    }
+
+    // Phone Validation
+    const phonePattern =
+      /^[0-9]{10}$/;
+
+    if (phone.value.trim() === "") {
+
+      document.getElementById("phoneError")
+        .innerText = "Please enter Phone Number";
+
+      phone.classList.add("error");
+
+      isValid = false;
+
+    } else if (!phonePattern.test(phone.value)) {
+
+      document.getElementById("phoneError")
+        .innerText = "Please enter valid 10-digit Phone Number";
+
+      phone.classList.add("error");
+
+      isValid = false;
+    }
+
+    // Course Validation
+    if (course.value.trim() === "") {
+
+      document.getElementById("courseError")
+        .innerText = "Please enter Course / Class";
+
+      course.classList.add("error");
+
+      isValid = false;
+    }
+
+    // Stop if invalid
+    if (!isValid) {
+      return;
+    }
+
+    // Email Content
+    const subject =
+      "Student Registration Request";
+
+    const body =
+`Hello,
+
+I would like to request registration.
+
+Application ID: ${applicationId.value}
+Name: ${name.value}
+Email: ${email.value}
+Phone: ${phone.value}
+Course: ${course.value}`;
+
+    const yourEmail =
+      "bethelpropheticbiblecollege@gmail.com";
+
+    successMsg.innerText =
+      "Registration Request Ready";
+
+    // Open Gmail
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${yourEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+      "_blank"
+    );
+
+  }
+
+</script>
 	<!-- Latest jQuery -->
 		<script src="assets/js/jquery-1.12.4.min.js"></script>
 	<!-- Latest compiled and minified Bootstrap -->

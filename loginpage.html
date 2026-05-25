@@ -10,7 +10,7 @@
 		<meta name="description" content="Bethel Prophetic Bible College offers biblical education, prophetic training, online classes, study materials, and spiritual growth programs for students worldwide.">
         <meta name="keywords" content="Bethel Prophetic Bible College, Bible College, Prophetic Training, Christian Education, Theology Courses, Online Bible Classes, Biblical Studies, Ministry Training, Spiritual Growth, Christian Ministry, Bethel Prophetic Ministries, Bible School">		
 		<!-- SITE TITLE -->
-	    <title>Tamil Course | Bethel Prophetic College</title>			
+	    <title>Login| Bethel Prophetic College</title>			
         <link rel="icon" type="image/png" href="logo.png">		
 		<!-- Latest Bootstrap min CSS -->
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">		
@@ -44,62 +44,151 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
+       <!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
 <script>
 
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+// FIREBASE CONFIG
+const firebaseConfig = {
+  apiKey: "AIzaSyDYuUy-vFd9yXviBo3nwyMZh_Nuc33GkUQ",
+  authDomain: "bethel-prophetic-bible-college.firebaseapp.com",
+  projectId: "bethel-prophetic-bible-college",
+  storageBucket: "bethel-prophetic-bible-college.firebasestorage.app",
+  messagingSenderId: "640951596402",
+  appId: "1:640951596402:web:073424fd9c2a17e9a959eb",
+  measurementId: "G-JLNN642BNL"
+};
 
-const url = 'brochure.pdf';
+firebase.initializeApp(firebaseConfig);
 
-const pdfContainer = document.getElementById('pdf-container');
+const auth = firebase.auth();
 
-pdfjsLib.getDocument(url).promise.then(pdf => {
 
-  for(let pageNum = 1; pageNum <= pdf.numPages; pageNum++){
+// USERS
+const users = [
+  {
+    
+    email:"bethelpropheticmedia@gmail.com",
+    password:"1234"
+  },
+  {
+    
+    email:"bethelpropheticmediaaa@gmail.com",
+    password:"pass123"
+  }
+];
 
-    pdf.getPage(pageNum).then(page => {
 
-      const viewport = page.getViewport({ scale: 1.6 });
 
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
 
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
 
-      canvas.classList.add('pdf-page');
+function login() {
 
-      pdfContainer.appendChild(canvas);
+  const email =
+  document.getElementById("email").value;
 
-      page.render({
-        canvasContext: context,
-        viewport: viewport
-      });
+  const password =
+    document.getElementById("password").value;
 
-    });
+  const message =
+    document.getElementById("message");
+
+
+  // FIND USER USING EMAIL
+ const validUser = users.find(user =>
+  user.email === email
+);
+
+
+  // EMPTY
+  if (email === "" || password === "") {
+
+    message.style.color = "red";
+    message.innerText =
+      "Please enter Registered Gmail ID and Password";
 
   }
 
-});
+  // EMAIL WRONG
+  else if (!validUser) {
+
+    message.style.color = "red";
+    message.innerText =
+      "Email ID is not registered";
+
+  }
+
+  // PASSWORD WRONG
+  else if (validUser.password !== password) {
+
+    message.style.color = "red";
+    message.innerText =
+      "Invalid Password";
+
+  }
+
+  // SUCCESS
+  else {
+
+    // GOOGLE AUTH
+    const provider =
+      new firebase.auth.GoogleAuthProvider();
+
+    auth.signInWithPopup(provider)
+
+      .then((result) => {
+
+        const googleEmail =
+          result.user.email;
 
 
+        // CHECK GOOGLE EMAIL MATCH
+        if (googleEmail !== validUser.email) {
+
+          message.style.color = "red";
+          message.innerText =
+            "Please login using your registered Gmail account.";
+
+          auth.signOut();
+
+          return;
+
+        }
 
 
-function openPopup(imageSrc){
+        // SAVE SESSION
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("email", googleEmail);
 
-    document.getElementById("imagePopup").style.display = "flex";
+        message.style.color = "green";
+        message.innerText =
+          "Login Successful";
 
-    document.getElementById("popupImage").src = imageSrc;
+
+        setTimeout(() => {
+
+          window.location.href = "ebook.html";
+
+        }, 1000);
+
+      })
+
+      .catch((error) => {
+
+        message.style.color = "red";
+        message.innerText =
+          error.message;
+
+      });
+
+  }
 
 }
 
-function closePopup(){
-
-    document.getElementById("imagePopup").style.display = "none";
-
-}
 </script>
-
 
 
 
@@ -166,75 +255,32 @@ function closePopup(){
 					</ul>			
 				</div><!--- END ROW -->
 			</div><!--- END CONTAINER -->
-		</div>   	  
+		</div>     	  
 		<!-- END NAVBAR -->		
 
-		<!-- START SECTION TOP -->
-		<section class="section-top">
-			<div class="container">
-				<div class="col-lg-10 offset-lg-1 text-center">
-					<div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-						<h1>பாட திட்டங்கள் </h1>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li> / பாடம் </li>
-						</ul>
-					</div><!-- //.HERO-TEXT -->
-				</div><!--- END COL -->
-			</div><!--- END CONTAINER -->
-		</section>	
-		<!-- END SECTION TOP -->
-		<section class="pdf-section">
-
-  <div class="pdf-header">
-    <h1>பெத்தேல் தீர்க்கதரிசன வேதாகமக் கல்லூரி</h1>
-    <p>காரைக்குடி </p>
-
-	<img src="assets/img/bg/front1.png" class="img-fluid" alt="" /><br>
 	
-          <div class="course-grid">
+		
+       
+		<!-- START LOGIN -->
+		 <!-- LOGIN SECTION -->
+<section class="login-section">
 
-    <div class="course-box">
-        <h3>இளங்களை பாடத்திட்டங்கள்</h3>
-        <p  onclick="openPopup('assets/img/coursetam2.jpg')">தொகுதிகளைப் பார்க்கவும்</p>
-    </div>
+  <div class="login-box">
 
-    <div class="course-box">
-        <h3>டிப்ளமோ பாடத்திட்டங்கள்</h3>
-        <p onclick="openPopup('assets/img/coursetam1.jpg')">தொகுதிகளைப் பார்க்கவும்</p>
-    </div>
-<!-- 
-    <div class="course-box">
-        <h3>DIPLOMA CURRICULUM</h3>
-        <p onclick="openPopup('assets/img/course3.jpg')">VIEW MODULES</p>
-    </div>
+    <h2>Login</h2>
 
-    <div class="course-box">
-        <h3>DIPLOMA IN MINISTRIES</h3>
-        <p onclick="openPopup('assets/img/course4.jpg')">VIEW MODULES</p>
-    </div> -->
+   <input type="email" id="email" placeholder="Registered Gmail ID">
 
-</div><br>
-    <a href="assets/pdf/Brouchure_Webview_Tamil.pdf" download class="download-btn">
-      Download PDF
-    </a>
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="message"></p>
+
   </div>
 
-  <div id="pdf-container"></div>
-
 </section>
-
-<!-- POPUP -->
-<div id="imagePopup" class="popup">
-
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-
-    <img id="popupImage" src="" alt="Course Image">
-
-</div>
-		<!-- START COURSE -->
-		
-		<!-- END COURSE -->		
+		<!-- END LOGIN -->		
 		
 		<!-- START FOOTER -->
 		<div class="footer section-padding">
