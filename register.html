@@ -129,7 +129,7 @@
 	<!-- Application ID -->
 <input type="text"
   id="applicationId"
-  placeholder="Application ID">
+  placeholder="Enrollment No">
 
 <span id="applicationIdError"
   class="error-message"></span>
@@ -289,7 +289,7 @@ if (applicationIdExists) {
 
   document.getElementById("applicationIdError")
     .innerText =
-    "This Application ID is already registered";
+    "This Enrollment No is already registered";
 
   applicationId.classList.add("error");
 
@@ -365,7 +365,7 @@ if (phoneExists) {
 if (applicationId.value.trim() === "") {
 
   document.getElementById("applicationIdError")
-    .innerText = "Please enter Application ID";
+    .innerText = "Please enter Enrollment No";
 
   applicationId.classList.add("error");
 
@@ -468,10 +468,17 @@ Course: ${course.value}`;
       "Registration Request Ready";
 
     // Open Gmail
-    window.open(
-      `https://mail.google.com/mail/?view=cm&fs=1&to=${yourEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
-      "_blank"
-    );
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+if (isMobile) {
+  window.location.href =
+    `mailto:${yourEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+} else {
+  window.open(
+    `https://mail.google.com/mail/?view=cm&fs=1&to=${yourEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+    "_blank"
+  );
+}
 
   }
 
