@@ -174,7 +174,7 @@
       Request Registration
     </button>
   
-    <p style="text-align: center; margin-top: 20px;">Registered Student? <a href="loginpage.html">Login</a></p>
+    <p style="text-align: center; margin-top: 20px; font-size: x-large;">Registered Student? <a href="loginpage.html" style="font-weight: 600;font-size: x-large;">Login</a></p>
 
     <div id="successMessage"
       class="success-message"></div>
@@ -468,16 +468,24 @@ Course: ${course.value}`;
       "Registration Request Ready";
 
     // Open Gmail
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 if (isMobile) {
   window.location.href =
     `mailto:${yourEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+  setTimeout(() => {
+    location.reload();
+  }, 1000);
 } else {
   window.open(
     `https://mail.google.com/mail/?view=cm&fs=1&to=${yourEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
     "_blank"
   );
+
+  setTimeout(() => {
+    location.reload();
+  }, 500);
 }
 
   }
