@@ -490,11 +490,16 @@ ${name.value}
 if (isMobile) {
   window.location.href =
     `googlegmail://co?to=${encodeURIComponent(yourEmail)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
+
   setTimeout(() => {
-    location.reload();
+    window.location.href =
+      `mailto:${yourEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }, 1000);
-} else {
+
+  window.addEventListener("focus", () => {
+    location.reload();
+  }, { once: true });
+}else {
   window.open(
     `https://mail.google.com/mail/?view=cm&fs=1&to=${yourEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
     "_blank"
