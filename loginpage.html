@@ -31,7 +31,8 @@
 		<!-- animate CSS -->
 		<link rel="stylesheet" href="assets/css/animate.css">	
 		<!-- Style CSS -->					
-		<link rel="stylesheet" href="assets/css/style.css">					
+		<link rel="stylesheet" href="assets/css/style.css">		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">			
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -269,7 +270,18 @@ function login() {
   }
 
 }
+function togglePassword() {
+  const password = document.getElementById("password");
+  const icon = document.querySelector(".toggle-password");
 
+  if (password.type === "password") {
+    password.type = "text";
+    icon.classList.replace("fa-eye-slash", "fa-eye");
+  } else {
+    password.type = "password";
+    icon.classList.replace("fa-eye", "fa-eye-slash");
+  }
+}
 </script>
 
 
@@ -353,7 +365,10 @@ function login() {
 
    <input type="email" id="email" placeholder="Registered Gmail ID">
 
-    <input type="password" id="password" placeholder="Password">
+   <div class="password-container">
+  <input type="password" id="password" placeholder="Password">
+  <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword()"></i>
+</div>
 
     <button onclick="login()">Login</button>
 	 <p style="text-align: center; margin-top: 20px; font-size: x-large;">Haven't Registered? <a href="register.html" style="font-weight: 600;font-size: x-large;">Register</a></p>
