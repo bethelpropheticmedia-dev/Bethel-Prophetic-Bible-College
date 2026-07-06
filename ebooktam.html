@@ -272,8 +272,8 @@ if (localStorage.getItem("loggedIn") !== "true") {
         </a> -->
 
 <div class="edropdown">
-        <button onclick="toggleMenu()">பாடங்கள் ▼</button>
-		  <div id="myDropdown" class="edropdown-content">
+        <button onclick="toggleMenuA()">பாடங்கள் ▼</button>
+		  <div id="myDropdownA" class="edropdown-content">
           <a href="https://youtu.be/DAXOpjzavfY">
           பாடம் 1</a>  <br>
 		  
@@ -761,6 +761,10 @@ Tamil Nadu- India</p>
 		function toggleMenu() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
+	function toggleMenuA() {
+    document.getElementById("myDropdownA").classList.toggle("show");
+}
+
 
 window.onclick = function(event) {
     if (!event.target.matches('button')) {
