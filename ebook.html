@@ -307,6 +307,20 @@ if (localStorage.getItem("loggedIn") !== "true") {
         <span>Systematic Theology</span>
        <!-- <a href="https://wa.me/919942453932?text=கர்த்தருக்கு%20ஸ்தோத்திரம்,%0AHello%20Bethel%20Prophetic%20Bible%20College,%0AB.Th%20பட்டப்படிப்பிற்காக%20“[ஐந்து%20வகை%20ஊழியத்தை%20புரிந்ததுகொள்ளுதல்]”என்ற%20புத்தகத்தைக்%20கேட்டுப்%20பெற%20விரும்புகிறேன்.%0Aதயவுசெய்து%20விவரங்களைப்%20பகிரவும்.%0Aநன்றி" >
 			Request</a> -->
+
+        	<div class="edropdown">
+        <button onclick="toggleMenuB()">Classes ▼</button>
+		  <div id="myDropdownB" class="edropdown-content">
+          <a  href="https://youtu.be/gY_7XGDeTzo">
+          Class 1</a>  <br>
+        
+         
+
+    </div></div>
+
+
+
+
       </div>
 
       <div class="ebook-item">
@@ -852,7 +866,9 @@ Tamil Nadu- India</p>
 function toggleMenuA() {
     document.getElementById("myDropdownA").classList.toggle("show");
 }
-
+function toggleMenuB() {
+    document.getElementById("myDropdownB").classList.toggle("show");
+}
 window.onclick = function(event) {
     if (!event.target.matches('button')) {
         const dropdown = document.getElementById("myDropdown");
