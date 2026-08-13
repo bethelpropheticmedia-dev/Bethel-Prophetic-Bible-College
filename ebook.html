@@ -313,7 +313,8 @@ if (localStorage.getItem("loggedIn") !== "true") {
 		  <div id="myDropdownB" class="edropdown-content">
           <a  href="https://youtu.be/gY_7XGDeTzo">
           Class 1</a>  <br>
-        
+        <a  href="https://youtu.be/yzt-Gi73bh8">
+          Class 2</a>  <br>
          
 
     </div></div>
@@ -868,6 +869,9 @@ function toggleMenuA() {
 }
 function toggleMenuB() {
     document.getElementById("myDropdownB").classList.toggle("show");
+}
+function toggleMenuC() {
+    document.getElementById("myDropdownC").classList.toggle("show");
 }
 window.onclick = function(event) {
     if (!event.target.matches('button')) {
