@@ -239,7 +239,7 @@ width: 50px;
 }
 .edropdown {
     position: relative;
-    display: flex;
+    /* display: flex; */
 }
 .edropdown button{
 
