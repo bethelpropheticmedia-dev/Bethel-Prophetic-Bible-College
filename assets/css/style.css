@@ -3521,6 +3521,7 @@ font-weight: 700;
 .bbc-pdf-section {
     padding: 80px 20px;
     background: #f7f5f0;
+	margin-top:-150px;
 }
 
 .bbc-pdf-container {
